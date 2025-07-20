@@ -598,12 +598,15 @@ export default {
           label: "Use system window decorations",
           desc: "Use OS-native window decorations instead of the electron title bar. <strong>Will restart the application.</strong>",
           platform_whitelist: ['electron']
-        }, {
-          model: "allowSysUpdateNotifs",
-          label: "Update notifications",
-          desc: "Unless this setting is disabled, the collection will check to see if there's a new version of the app available when it starts up and alert you if there is.",
-          platform_whitelist: ['electron']
-        }, {
+        },
+        // MOD: patch out update notifs
+        // {
+        //   model: "allowSysUpdateNotifs",
+        //   label: "Update notifications",
+        //   desc: "Unless this setting is disabled, the collection will check to see if there's a new version of the app available when it starts up and alert you if there is.",
+        //   platform_whitelist: ['electron']
+        // },
+        {
           model: "useTabbedBrowsing",
           label: "Tabbed Browsing",
           desc: "By default, the web app only shows one page at a time, like a standard website. This setting re-enables the in-app tab bar, and the app will store your tabs in settings.",
