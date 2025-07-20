@@ -619,11 +619,13 @@ export default {
           label: "Reduce Motion",
           desc: "Attempts to reduce the amount of automatic motion in the comic by replacing animated gifs with a manual scrubber, and requiring an explicit click before playing Flash animations.",
           platform_whitelist: ['electron']
-        }, {
-          model: "ruffleFallback",
-          label: "Ruffle flash emulation fallback",
-          desc: "If the built-in flash player is non-functional, use the <a href='https://ruffle.rs/'>Ruffle</a> Flash emulator in place of Flash."
-        }
+        },
+        // MOD: always use ruffle
+        // {
+        //   model: "ruffleFallback",
+        //   label: "Ruffle flash emulation fallback",
+        //   desc: "If the built-in flash player is non-functional, use the <a href='https://ruffle.rs/'>Ruffle</a> Flash emulator in place of Flash."
+        // }
       ],
       retconList: [
         {

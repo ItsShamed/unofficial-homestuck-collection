@@ -314,16 +314,8 @@ if (assetDir === undefined) {
   is_first_run = true
 } else {
   try {
-    if (store.has('settings.ruffleFallback') && store.get('settings.ruffleFallback') === true) {
-      logger.info("Ruffle fallback enabled, disabling ppapi-level flash player")
-    } else {
-      // Pick the appropriate flash plugin for the user's platform
-      const flashPath = getFlashPath()
-
-      if (fs.existsSync(flashPath)) {
-        app.commandLine.appendSwitch('ppapi-flash-path', flashPath)
-      } else throw Error(`Flash plugin not located at ${flashPath}`)
-    }
+    // MOD: always use ruffle
+    logger.info("Ruffle fallback enabled, disabling ppapi-level flash player")
 
     if (store.has('settings.smoothScrolling') && store.get('settings.smoothScrolling') === false)
       app.commandLine.appendSwitch('disable-smooth-scrolling')
@@ -755,6 +747,9 @@ async function createWindow () {
     autoHideMenuBar: true,
     webPreferences: {
       nodeIntegration: process.env.ELECTRON_NODE_INTEGRATION,
+      // MOD: disable isolation to get
+      // collection to work with electron 35
+      contextIsolation: false,
       enableRemoteModule: true,
       plugins: true,
       webviewTag: true
