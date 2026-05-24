@@ -750,7 +750,6 @@ async function createWindow () {
       // MOD: disable isolation to get
       // collection to work with electron 35
       contextIsolation: false,
-      enableRemoteModule: true,
       plugins: true,
       webviewTag: true
     }
